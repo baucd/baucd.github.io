@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xing-Jie Han on Chuang&#39;s Site</title>
+    <link>https://baucd.github.io/authors/xing-jie-han/</link>
+    <description>Recent content in Xing-Jie Han on Chuang&#39;s Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019</copyright>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://baucd.github.io/authors/xing-jie-han/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finite-temperature charge dynamics and the melting of the Mott insulator</title>
+      <link>https://baucd.github.io/publication/han-2018-finite/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://baucd.github.io/publication/han-2018-finite/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

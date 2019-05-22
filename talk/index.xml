@@ -7,18 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2019 15:43:10 +0800</lastBuildDate>
     
 	<atom:link href="https://baucd.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Example Talk</title>
-      <link>https://baucd.github.io/talk/example/</link>
-      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <title>Charge-Density-Wave Transitions of Dirac Fermions Coupled to Phonons</title>
+      <link>https://baucd.github.io/talk/marchmeeting_2019/</link>
+      <pubDate>Wed, 22 May 2019 15:43:10 +0800</pubDate>
       
-      <guid>https://baucd.github.io/talk/example/</guid>
-      <description>An example talk using Academic&amp;rsquo;s Markdown slides feature.</description>
+      <guid>https://baucd.github.io/talk/marchmeeting_2019/</guid>
+      <description></description>
     </item>
     
   </channel>

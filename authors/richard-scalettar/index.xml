@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Richard Scalettar on Chuang&#39;s Site</title>
+    <link>https://baucd.github.io/authors/richard-scalettar/</link>
+    <description>Recent content in Richard Scalettar on Chuang&#39;s Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019</copyright>
+    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://baucd.github.io/authors/richard-scalettar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Symmetry-enforced self-learning Monte Carlo method applied to the Holstein model</title>
+      <link>https://baucd.github.io/publication/phys-rev-b-98-041102/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://baucd.github.io/publication/phys-rev-b-98-041102/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
