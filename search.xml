@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>cc first post</title>
+    <url>/2021/12/03/cc-first-post/</url>
+    <content><![CDATA[<h1 id="GDB-Usage"><a href="#GDB-Usage" class="headerlink" title="GDB Usage"></a>GDB Usage</h1><h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>Use <strong>info breakpoints</strong> to view all breakpoints. There are various way to setup breakpoints</p>
+<ul>
+<li>using line number, <strong>b 9</strong></li>
+<li>using function name, <strong>b func</strong></li>
+<li>set the breakpoints if some conditions are satisfied. <strong>break test.c:23 if b==0</strong>, and use <strong>condition</strong> to set the variables</li>
+<li>set the breakpoints according to some custom rules. <strong>rbreak</strong></li>
+<li>temporary breakpoints. <strong>tbreak</strong></li>
+<li>ignore breakpoints for sometimes. <strong>ignore 1 30</strong>, ignore breakpoint 1 for 30 times.</li>
+<li><strong>disable</strong>, <strong>enable</strong>, <strong>clear</strong>, <strong>delete</strong> breakpoints.</li>
+</ul>
+<h2 id="Watch-Variables"><a href="#Watch-Variables" class="headerlink" title="Watch Variables"></a>Watch Variables</h2><p>After we setup breakpoints and run the program, we need to watch the values of variables to locate the bugs and debug. When we reach certain breakpoints, we can check the variables as follows</p>
+<ul>
+<li><strong>print</strong>: print ordinary variables such as scalars, arrays or strings. We can also print out variables that belong to certain functions or source code files via <strong>p ‘testGdb.h’::a</strong></li>
+<li>for pointer, <strong>p d</strong> will output the address only, *<em>p <em>d</em></em> will give us the value. However, for array, it will output the first element only, please use *<em>p <em>d@n</em></em> to print out <strong>n</strong> elements.</li>
+<li><strong>display</strong>: print out certain variables everytime breakpoint is encountered. </li>
+<li><strong>info display</strong>: show variables that are be marked with <strong>display</strong>. </li>
+</ul>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>devices customizations</title>
+    <url>/2021/12/03/devices-customizations/</url>
+    <content><![CDATA[<h1 id="Arch-Linux-PC-Customization"><a href="#Arch-Linux-PC-Customization" class="headerlink" title="Arch Linux PC Customization"></a>Arch Linux PC Customization</h1><p>For the convenience of migrating my Arch Linux and MacOS operating system to new computers, I create this note to help me and others to customize the new hardwares.</p>
+<h2 id="Desktop-Environment"><a href="#Desktop-Environment" class="headerlink" title="Desktop Environment"></a>Desktop Environment</h2><p>I don’t like and use those <em><strong>heavy</strong></em> desktops such as KDE or GNOME. Because they are too large and redundant. Most of their features are totally useless for me. So my philosophy of operating system is <em><strong>KISS</strong></em> (keep it simple and stupid).</p>
+<ul>
+<li>small but exclusive program</li>
+<li>good extendiability, customizable</li>
+<li>connect and corporate with other program easily</li>
+</ul>
+<p>At the same time, I also value the GUI softwares. I am not totally against GUI. In some occassions, GUI softwares are way better than CLI ones such as Markdown editor, Adobe’s family etc. For coding, IDE and vim/emacs have their own merits and shortcomings. It depends on the people and requirements to make the choice.</p>
+<h3 id="Window-Manager"><a href="#Window-Manager" class="headerlink" title="Window Manager"></a>Window Manager</h3><p><em><strong>i3-gaps</strong></em> is my choice. I am in favor of tiling window manager over floating window manager. All windows are sorted and well organized by tiling window manager. Tiling window manager also gives me the oppportunity to get rid of mouse in most cases. Customized keyboard shortcuts greatly enhance the efficiency of window operations.</p>
+<h3 id="Status-Bar"><a href="#Status-Bar" class="headerlink" title="Status Bar"></a>Status Bar</h3><p>The information that needs to be displayed on status bar are</p>
+<ul>
+<li>workspaces and current workspace</li>
+<li>internet connectivity</li>
+<li>hardware status: CPU, GPU usage, temperature, connection speed (upload/download), current time and date</li>
+<li>other applets</li>
+</ul>
+<p>Menu bar is not necessary. In most cases, keyboard shortcuts are enough. <em><strong>polybar</strong></em> is my choice.</p>
+<h3 id="Notification-Center"><a href="#Notification-Center" class="headerlink" title="Notification Center"></a>Notification Center</h3><p>Use <em><strong>dunst</strong></em> to push notification.</p>
+<h2 id="Coding-Environments"><a href="#Coding-Environments" class="headerlink" title="Coding Environments"></a>Coding Environments</h2><h3 id="Terminal-Emulator"><a href="#Terminal-Emulator" class="headerlink" title="Terminal Emulator"></a>Terminal Emulator</h3><p><em><strong>URXVT</strong></em> is great.</p>
+<ul>
+<li>Very small and consume very little resources</li>
+<li>use <em><strong>.Xresources</strong></em> to config</li>
+<li>good extendibility</li>
+</ul>
+<h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><p><em><strong>zsh</strong></em> is the best! I have modified some of the <em><strong>oh-my-zsh</strong></em> themes to suit my need. <em><strong>zsh</strong></em> with <em><strong>git</strong></em> support is great. However, I also have a very nice <em><strong>.bashrc</strong></em> for <em><strong>bash</strong></em>. Bash is the choice on most computational servers.</p>
+<h3 id="Editor"><a href="#Editor" class="headerlink" title="Editor"></a>Editor</h3><p>Vim is the editor that I used since I learnd to use Linux systems. And my customized Vim settings including plugins and themes have been backuped to Gitlab of T03 at <a href="https://code.itp.ac.cn/baucd/vim_settings">https://code.itp.ac.cn/baucd/vim_settings</a>. By the way, my <em><strong>dotfiles</strong></em> are backuped to <a href="https://code.itp.ac.cn/baucd/dotfiles">https://code.itp.ac.cn/baucd/dotfiles</a>. Most of the config files are in <em><strong>dotfiles</strong></em>.</p>
+<h3 id="Terminal-Multiplexer"><a href="#Terminal-Multiplexer" class="headerlink" title="Terminal Multiplexer"></a>Terminal Multiplexer</h3><p>Why <strong>tmux</strong> is important? For me, the most useful function is <strong>session management</strong>.</p>
+<ul>
+<li>session management</li>
+<li>session management on remote headless server</li>
+<li>window tiling and multiplexing</li>
+<li>easy to save current working environment (with help of <strong>tmux-resurrect</strong> plugin)</li>
+</ul>
+<p>By the way, thanks <strong>oh-my-tmux</strong> project!</p>
+<h3 id="Version-Management"><a href="#Version-Management" class="headerlink" title="Version Management"></a>Version Management</h3><p><em><strong>Git</strong></em> is a great gift from Linus. git works well with zsh, <em><strong>tig</strong></em> and <em><strong>icdiff</strong></em>. <strong>zsh</strong> is also good partner of <strong>git</strong>.</p>
+<h3 id="Compilers"><a href="#Compilers" class="headerlink" title="Compilers"></a>Compilers</h3><h4 id="Fortran-Compilers"><a href="#Fortran-Compilers" class="headerlink" title="Fortran Compilers"></a>Fortran Compilers</h4><p>Firstly one can install gfortran and gcc for testing the code. However, for the sake of performance, the Intel compiler is the best option. I backup the installation package of 2013 version at <em><strong>seafile</strong></em>. The license file is <strong>NCOM_L___N433-7ZVC9N6P.lic</strong> Also, for nvidia-gpus support, install <em><strong>PGI Fortran</strong></em> compiler.</p>
+<h4 id="Nvidia-GPU-Compilers"><a href="#Nvidia-GPU-Compilers" class="headerlink" title="Nvidia GPU Compilers"></a>Nvidia GPU Compilers</h4><p>Install nvidia proprietary driver on Arch Linux is simple, just use <em><strong>pacman</strong></em>. Install <em><strong>CUDA</strong></em> is also simple on Arch Linux. Actually, install <em><strong>Intel</strong></em> compiler is also simple on Arch Linux, just to apply for license yourself and put them into the corresponding folder.</p>
+<h4 id="MPI-Compilers"><a href="#MPI-Compilers" class="headerlink" title="MPI Compilers"></a>MPI Compilers</h4><p>In most cases, I use <em><strong>mpich</strong></em>, but <em><strong>openmpi</strong></em> is also needed especially for <em><strong>GPU</strong></em> support. I use the MPICH 3.2 for MPI application. One can build it from source by the following command</p>
+<blockquote>
+<p>./configure C=gcc CXX=g++ F77=ifort FC=ifort -prefix=/home/alexchen/mpich-install –enable-shared</p>
+</blockquote>
+<p>###Libraries</p>
+<ul>
+<li>MKL from Intel</li>
+<li>Openblas with Lapack support, sequential or multi-threaded version</li>
+<li>cuBlas from CUDA, full support for BLAS.</li>
+<li>cuSolver from CUDA, partial supoort for Lapack</li>
+<li>Magma: full support of BLAS and Lapack on GPU</li>
+</ul>
+<p>See the readme.md of <strong>general_cuda_fortran_dqmc</strong> git repo for instructions on how to compile <strong>magma</strong> library.</p>
+<h3 id="Scripting-Language"><a href="#Scripting-Language" class="headerlink" title="Scripting Language"></a>Scripting Language</h3><h4 id="Shell-1"><a href="#Shell-1" class="headerlink" title="Shell"></a>Shell</h4><p>I have one complete set of shell scripts to submit jobs, fetch data, analyz data and make plots. But I already switched to Python.</p>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul>
+<li>My job manager and Plot maker.</li>
+<li>Web Crawler</li>
+</ul>
+<h2 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h2><p>Browser is very important for anyone who uses Internet to gather information and entertainment. Requiremnts</p>
+<ul>
+<li>Extendibility. The basic functions are always too limitted. <em><strong>Safari</strong></em> is far from good enough from this perspective.</li>
+<li>Performance. Especially Video decoding. GPU hardware acceleration is rigid demand.</li>
+</ul>
+<p><em><strong>Chrome</strong></em> and <em><strong>Chromium</strong></em> are choices for macos and Arch Linux separately. All extenstions bookmarks and settings are synced.</p>
+<h2 id="Internet-Environments"><a href="#Internet-Environments" class="headerlink" title="Internet Environments"></a>Internet Environments</h2><p>One basic need is to go across the <em><strong>GFW</strong></em> in Mainland China. The current solution to buy VPS and setup <em><strong>shadowsocks</strong></em> and <em><strong>v2ray</strong></em> to bypass the <em><strong>GFW</strong></em>. However, the efficiency to VPN is largely affected by the route IPS provided. Another rigid demand is to have a private network connecting my devices regardless of locations and network structure. I firstly setup a P2P network connecting to IOP office devices using zerotier-one. Then through IOP route, I can connect to my VPN server, which is far more stable than ordinary network environments.</p>
+<h3 id="By-Pass-GFW"><a href="#By-Pass-GFW" class="headerlink" title="By Pass GFW"></a>By Pass GFW</h3><ul>
+<li>Shadowsocks with obfs</li>
+<li>V2Ray using tls and domain</li>
+</ul>
+<h3 id="Private-Network"><a href="#Private-Network" class="headerlink" title="Private Network"></a>Private Network</h3><p>I always need to use the IOP network to download papers, movies (IPV6 resources) and access my VPN server (VPS) as well as Seafile.</p>
+<ul>
+<li>Tinc layer 2 P2P VPN</li>
+<li>Zerotier-one: I find this more stable than tinc. Possible reason is that the zerotier-one communication server is more easily connected than tinc server (Guang-Yu Sun’s VPS)</li>
+</ul>
+<h3 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h3><p>Openwrt router. Desired function:</p>
+<ul>
+<li>global proxy management for all connected devices</li>
+<li>AD filter</li>
+<li>Zerotier on router</li>
+<li>smart QoS</li>
+<li>customized DNS</li>
+</ul>
+<h2 id="Scientific-Environments"><a href="#Scientific-Environments" class="headerlink" title="Scientific Environments"></a>Scientific Environments</h2><h3 id="Reference-Management"><a href="#Reference-Management" class="headerlink" title="Reference Management"></a>Reference Management</h3><p><strong>Mendeley desktop</strong>. Free space is large enough, syncing between differnet devices. At the same time, I manage my references using seafile with the following two ways</p>
+<ul>
+<li>Seafile: <strong>Knowledge_Library</strong> for relatively earlier papers and books.</li>
+<li>Seafile: <strong>Scientific_Research/Projects_Refs</strong> for papers directly related to my projects. <strong>Scientific_Research/Recent_Papers</strong> for recent interesting papers.</li>
+</ul>
+<h3 id="LaTeX-Editor"><a href="#LaTeX-Editor" class="headerlink" title="LaTeX Editor"></a>LaTeX Editor</h3><p><em><strong>Texmaker</strong></em> plus <em><strong>vim</strong></em> and <em><strong>git-latexdiff</strong></em> build a relatively comfortable writing environment.</p>
+<h4 id="Important-Update"><a href="#Important-Update" class="headerlink" title="Important Update"></a>Important Update</h4><p>With the help of Zhe Li, I start to using <em><strong>sublime text</strong></em> + <em><strong>skim</strong></em> to edit and view latex and pdf files. I also enable the <em><strong>vintage</strong></em> plugin to use <strong>vi-mode</strong> to edit code in sublime. Color scheme is <strong>Dracula</strong> as always. The environment is setup on my mac and I am going to setup the Linux as well.</p>
+<h3 id="Notebook"><a href="#Notebook" class="headerlink" title="Notebook"></a>Notebook</h3><ul>
+<li>LyX: dealing with equations and formula, usually for my scientific projects</li>
+<li>Typora: markdown editor, making notes, basically pure text notes</li>
+<li>GoodNotes5: hand-written notes</li>
+</ul>
+<h3 id="Mathematica"><a href="#Mathematica" class="headerlink" title="Mathematica"></a>Mathematica</h3><p>Useful to perform some analytical calculations.</p>
+<h2 id="Entertainment-Environments"><a href="#Entertainment-Environments" class="headerlink" title="Entertainment Environments"></a>Entertainment Environments</h2><ul>
+<li><strong>Seafile</strong>: on RPI4, serve as netdisk and syncdisk. Store my collections of musics, pictures, movies and my backups. I can mount fuse seafile through <em><strong>NFS</strong></em>.</li>
+<li><strong>CMUS</strong>: Console Music Player, together with <strong>Apple Music</strong> and <strong>Xiami</strong> (use for those not in Apple Music)</li>
+<li><strong>MPV</strong>: video player, <strong>IINA</strong> on macOS</li>
+<li><strong>Steam</strong>: Gaming on Linux, also Don’t Starve Together dedicated server.</li>
+<li><strong>PT Downloader</strong>: Setup on RPI4, allow me to have access to a lot of excellent multi-media resources.</li>
+</ul>
+<h2 id="Backup-and-System-Maintenance"><a href="#Backup-and-System-Maintenance" class="headerlink" title="Backup and System Maintenance"></a>Backup and System Maintenance</h2><h3 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h3><p><strong>etckeeper</strong> will backup /etc files in a version contro manner. It is a automatic tool and will update the git repo when</p>
+<ul>
+<li>before and after pacman upgrades</li>
+<li>commit it on a daily basis using <em><strong>daily</strong></em> script with <strong>cron</strong></li>
+<li>manually</li>
+</ul>
+<h3 id="dotfiles"><a href="#dotfiles" class="headerlink" title="dotfiles"></a>dotfiles</h3><p>Use pure Git to backup $HOME dotfiles. Following the instructions on this Arch Linux wiki <a href="https://wiki.archlinux.org/index.php/Dotfiles#Tracking_dotfiles_directly_with_Git">git dotfiles</a>.</p>
+<h3 id="Pacman-Backups"><a href="#Pacman-Backups" class="headerlink" title="Pacman Backups"></a>Pacman Backups</h3><ul>
+<li>pacman packages list backup using <strong>backup_packages.sh</strong> script and the list is also controlled by <strong>dotfiles</strong> git repo.</li>
+<li>pacman local database backup using <em><strong>pakbak-git</strong></em> in aur</li>
+</ul>
+<p><strong>In conclusion</strong>, /etc will be backuped automatically. dotfiles are controlled by git and I should push the changes manually. As for the pacman, I have to manually backup the package list and the local database will be managed by <em><strong>pakbak-git</strong></em> automatically. <strong>Manual operations</strong></p>
+<ul>
+<li>home folder dotfiles management</li>
+<li>pacman package list management</li>
+</ul>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="Other-Useful-Softwares"><a href="#Other-Useful-Softwares" class="headerlink" title="Other Useful Softwares"></a>Other Useful Softwares</h3><ul>
+<li><strong>i7z</strong> : CPU monitor</li>
+<li><strong>mendeley</strong> : references management software</li>
+<li><strong>ubuntu-restricted-extras</strong> : third-party decoders</li>
+<li><strong>fcitx-table-wbpy</strong> : input method</li>
+<li><strong>gnuplot</strong> : plot</li>
+<li><strong>filezilla</strong> : ftp client</li>
+<li><strong>mpv</strong> : player</li>
+<li><strong>htop</strong> : system performance monitor</li>
+<li><strong>iftop</strong> : system internet monitor</li>
+<li><strong>git</strong> : version management</li>
+<li><strong>wps</strong> : office</li>
+<li><strong>openssh-server</strong> : ssh support</li>
+<li><strong>texlive</strong> : Latex environment</li>
+<li><strong>texmaker</strong> : tex file editor</li>
+<li><strong>matlab</strong> : matlab</li>
+<li><strong>transmission-daemon</strong> : command line torrent management software</li>
+<li><strong>nfs</strong> : network file sharing</li>
+<li><strong>steam</strong> : gaming platform</li>
+<li><strong>rime</strong>: input method</li>
+<li><strong>ranger</strong>: CLI filemanager</li>
+<li><strong>deepin-screenshot</strong>: better than <strong>shutter</strong>, which has memory leak</li>
+<li><strong>tig</strong>: nice tool to view git history</li>
+<li><strong>nmon</strong>: CLI system monitor</li>
+<li><strong>cmus</strong>: CLI music player</li>
+<li><strong>ncdu</strong>: display disk usage (very nice tool, easy than <strong>du</strong>)</li>
+<li><strong>cloc</strong>: count the lines of code</li>
+<li><strong>tldr</strong>: very short version of man page</li>
+<li><strong>fuck</strong>: correct the previous command</li>
+<li><strong>nethogs</strong>: processes network activity statistics</li>
+<li><strong>s-tui</strong>: stress test and performance monitor</li>
+<li><strong>fzf</strong>: fuzzy search</li>
+</ul>
+<h3 id="Adobe-Family"><a href="#Adobe-Family" class="headerlink" title="Adobe Family"></a>Adobe Family</h3><ul>
+<li><strong>Illustrator</strong>: Edit bitmap image</li>
+<li><strong>Photoshop</strong>: Edit photos</li>
+<li>Linux counterparts: <strong>Inkscape</strong> and <strong>GIMP</strong></li>
+</ul>
+<h3 id="Productivity"><a href="#Productivity" class="headerlink" title="Productivity"></a>Productivity</h3><ul>
+<li><strong>Lyx</strong>: Latex editor aside from <strong>Sublime-text</strong></li>
+<li><strong>Typora</strong>: Markdown editor</li>
+<li><strong>XMind</strong>: flowchart</li>
+<li><strong>TickTick</strong>: agenda management</li>
+<li><strong>Apple Watch</strong>: Activity and time management</li>
+</ul>
+<h3 id="Social-Network-and-Instant-Messenger"><a href="#Social-Network-and-Instant-Messenger" class="headerlink" title="Social Network and Instant Messenger"></a>Social Network and Instant Messenger</h3><p><strong>FUCK TENCENT</strong>!</p>
+<p>I am currently using <em><strong>telegram</strong></em> to fetch all WeChat messages. I also setup a <strong>RSS robot</strong> on VPS to automatically fetch interesting infomation from the sites I care. <em><strong>Telegram</strong></em> can fetch my Gmail as well. Now my phone msm and missed calls will also be pushed to <em><strong>telegram</strong></em>.</p>
+<p>I like <em><strong>slack</strong></em> and will use it when I have projects corporating with foreign groups.</p>
+<h1 id="MacBook-Pro-Customization"><a href="#MacBook-Pro-Customization" class="headerlink" title="MacBook Pro Customization"></a>MacBook Pro Customization</h1><p>Most of the configurations related to CLI are the same as Arch Linux counterparts.</p>
+<h2 id="Touch-ID-in-iterm2-and-tmux"><a href="#Touch-ID-in-iterm2-and-tmux" class="headerlink" title="Touch ID in iterm2 and tmux"></a>Touch ID in iterm2 and tmux</h2><p><strong>Important</strong>: everytime after upgrade of macos or ios, watchos, there are chances that the apple watch auto unlock will fail. In such case, please use the <strong>keychain access</strong> method or <strong>sign out of iCloud on every device</strong> or <strong>re-pair the apple watch with iPhone</strong>. One of them will work eventually, just have to try! </p>
+<h3 id="sudo-with-Touch-ID-and-Apple-Watch"><a href="#sudo-with-Touch-ID-and-Apple-Watch" class="headerlink" title="sudo with Touch ID and Apple Watch."></a><strong>sudo</strong> with Touch ID and Apple Watch.</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auth     optional     pam_reattach.so</span><br><span class="line">auth     sufficient   pam_tid.so</span><br></pre></td></tr></table></figure>
+
+<p>add the above two lines to file /etc/pam.d/sudo and install <strong>pam_reattach</strong></p>
+<p><code>brew install fabianishere/personal/pam_reattach</code></p>
+<p>to use Touch ID within <strong>tmux</strong> sessions. Note that everytime macOS does a major update, I have to rewrite the /etc/pam.d/sudo file.</p>
+<h3 id="sudo-with-Apple-Watch-when-lid-is-closed"><a href="#sudo-with-Apple-Watch-when-lid-is-closed" class="headerlink" title="sudo with Apple Watch when lid is closed"></a><strong>sudo</strong> with Apple Watch when lid is closed</h3><p>A very nice open-source project to realize this function <a href="https://github.com/biscuitehh/pam-watchid">pam-watchid</a>.Add the following code to the first line of /etc/pam.d/sudo file</p>
+<p><code>auth sufficient pam_watchid.so &quot;reason=execute a command as root&quot;</code></p>
+<p>in total</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auth     sufficient   pam_watchid.so &quot;reason=execute a command as root&quot;</span><br><span class="line">auth     optional     pam_reattach.so</span><br><span class="line">auth     sufficient   pam_tid.so</span><br></pre></td></tr></table></figure>
+
+<h2 id="CMUS"><a href="#CMUS" class="headerlink" title="CMUS"></a>CMUS</h2><p>I use cmus as one of my two music players on macos (the other is of course Apple Music). CMUS is used to connect to my seafile Music library, playing my music collections.</p>
+<p><a href="https://github.com/PhilipTrauner/cmus-osx"><strong>cmus-osx</strong></a> will show track change notifications and enable media key control on cmus. When try to use media key to control the playback, only one of Apple Music or cmus can run in the background to avoid confusion (need <a href="https://github.com/tombonez/noTunes">noTunes</a>). So use cmus, stop Apple Music and stop cmus when using Apple Music (after all, there is only one media key and macOS is not smart enough to distinguish the current playing source) .</p>
+<h2 id="Tiling-Window-Manager"><a href="#Tiling-Window-Manager" class="headerlink" title="Tiling Window Manager"></a>Tiling Window Manager</h2><p><a href="https://github.com/koekeishiya/yabai"><strong>koekeishiya/yabai</strong></a> is working and meets my requirements. I usually have four workspaces</p>
+<ul>
+<li>ws1 for telegram and all other sort of applications, floating mode</li>
+<li>ws2 for finder and pdf preview, floating mode</li>
+<li>ws3 for Chrome only, tiling mode</li>
+<li>ws4 for iterm2 only, tiling mode</li>
+</ul>
+<h2 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h2><h3 id="built-in-python"><a href="#built-in-python" class="headerlink" title="built-in python"></a>built-in python</h3><p>Python’s are shipped with macos by default. Two version of pythons but the default one is still python2.7</p>
+<ul>
+<li>python2: <code>/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7</code> or <code>/usr/bin/python</code></li>
+<li>python3: <code>/usr/bin/python3</code>, now the version is 3.8.2. It is provided by the Xcode command line developer tools.</li>
+</ul>
+<p>Default library paths are <code>/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8</code>, something like this. It is in the Xcode folders. Built-in python2 was never used by me explicitly.</p>
+<h3 id="homebrew-python"><a href="#homebrew-python" class="headerlink" title="homebrew python"></a>homebrew python</h3><p>Python installed using homebrew are in</p>
+<ul>
+<li>python2: <code>/usr/local/bin/python2</code> or <code>/usr/local/Cellar/python@2/2.7.17_1/bin/python2</code></li>
+<li>python3:<code>/usr/local/bin/python3</code> or <code>/Library/Frameworks/Python.framework/Versions/3.9/bin</code> or <code>/usr/local/Cellar/python@3.9/3.9.0/bin/python3</code></li>
+</ul>
+<p>Python libraries can be installed using two methods</p>
+<ul>
+<li>pip and pip3: these <strong>pip</strong> are provided by homebrew, but the libraries are from <strong>PyPI</strong> server.</li>
+<li>homebrew: <code>brew install numpy</code> etc. The libraries are from homebrew server.</li>
+</ul>
+<p>The installation location is <code>/usr/local/lib/python3.x/site-packages</code> and <code>/usr/local/lib/python2.x/site-packages</code>.</p>
+<h3 id="relations"><a href="#relations" class="headerlink" title="relations"></a>relations</h3><p>Python -&gt; Ipython (Ipykernel) -&gt; JupyterLab</p>
+<p>I am using all of the above products installed from <strong>homebrew</strong>.</p>
+<ul>
+<li>upgrade python3.x: need to reinstall libraries. Update only python3.x.y, no need to reinstall libraries.</li>
+<li>upgrade Ipython: nothing need to be done.</li>
+<li>upgrade JupyterLab: all extensions need to be reinstalled using <strong>$HOME/bin/install_jupyter_extensions.sh</strong></li>
+<li>extensions for jupyterlab are<ul>
+<li>sudo pip install jupyter-lsp</li>
+<li>sudo pip install jupyter_nbextensions_configurator</li>
+<li>sudo pip install python-lsp-server</li>
+</ul>
+</li>
+</ul>
+<p><strong>About Jupyterlab</strong>:</p>
+<p>Every major upgrade: especially after upgrading python3 version via brew, please make sure <strong>/Users/alexchen/Library/Jupyter/kernels/python3/kernel.json</strong> set the python3 kernel in Jupyterlab correctly.</p>
+<h2 id="Backups"><a href="#Backups" class="headerlink" title="Backups"></a>Backups</h2><p><strong>Time Machine</strong> is good enough. I also use git to backup some <strong>dotfiles</strong>, now seems not necessary.</p>
+<h2 id="Note-Taking"><a href="#Note-Taking" class="headerlink" title="Note Taking"></a>Note Taking</h2><p><strong>Joplin</strong> + <strong>Typora</strong> very nice, Joplin supports using external markdown editor. Joplin with **outline** plugin <a href="https://github.com/cqroot/joplin-outline">outline</a>. Also with a chrome extension <strong>Joplin Web Clipper</strong>.</p>
+<h2 id="Storage-Management"><a href="#Storage-Management" class="headerlink" title="Storage Management"></a>Storage Management</h2><p>Use system storage tool and command line tool <strong>ncdu</strong> to list large files and folders. Some caches can be cleaned to save my mac spaces. </p>
+<ul>
+<li>XCode Caches: use the system storage management to clean xcode caches</li>
+<li>Chrome caches: use chrome itself to clean caches</li>
+<li>other useless data</li>
+</ul>
+<h1 id="VPS-SBC-and-Router-Customization"><a href="#VPS-SBC-and-Router-Customization" class="headerlink" title="VPS, SBC and Router Customization"></a>VPS, SBC and Router Customization</h1><p>VPS and SBC such as Raspberry 4 are important assistant devices. They will serve as the following tools</p>
+<ul>
+<li>v2ray: proxy</li>
+<li>shadowsocks: proxy</li>
+<li>frp: reverse proxy</li>
+<li>telegram mtproxy: proxy</li>
+<li>gost: socks5 to http, proxy</li>
+<li>nginx+php: web server + reverse proxy</li>
+<li>seafile: netdisk</li>
+<li>pi-hole: dns</li>
+<li>telegram bots: wechat bot, rss bot and ys check in bot (on github)</li>
+<li>rsshub: rss</li>
+<li>zerotier-one: vpn</li>
+<li>transmission: PT downloader</li>
+<li>nfs: network sharing</li>
+<li>time machine: for macOS</li>
+<li>webhook via node.js: need to use <strong>nvm</strong> to force node.js 10 version, export <strong>ENV</strong> first</li>
+<li>ifttt: on Android</li>
+<li>cockpit</li>
+</ul>
+<h2 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h2><p>VPS outside mainland China. The IP is quite useful. It will host</p>
+<ul>
+<li>network assistant<ul>
+<li>VPN: shadowsocks + v2ray</li>
+<li>VPN: zerotier-one</li>
+</ul>
+</li>
+<li>telegram bot (require IP outside mainland China)<ul>
+<li>RSS bot</li>
+<li>WeChat bot</li>
+</ul>
+</li>
+<li>personal website server</li>
+<li>frp server connects with <strong>rpi4</strong>‘s frp client</li>
+<li>cockpit web </li>
+</ul>
+<h2 id="SBC"><a href="#SBC" class="headerlink" title="SBC"></a>SBC</h2><p>SBC is more powerful in terms of computational power and IO than the cheapest VPS. It will host</p>
+<ul>
+<li>PT downloader: use transmission to download PT torrents of IPV6 resources</li>
+<li>Seafile: cloud storage on the one hand and network sync-disk on the other hand</li>
+<li>TimeMachine: cloud backup for my macbook pro</li>
+<li>cockpit</li>
+</ul>
+<p>and some network services</p>
+<ul>
+<li>Docker: host <strong>rsshub</strong> for me</li>
+<li>network assistant: zerotier-one and mainland China shadowsocks VPN server ( useful when I am outside mainland China)</li>
+<li>local DNS server: <strong>pi-hole</strong></li>
+<li>transparent proxy: v2ray</li>
+<li>webhook downloader via nodejs <a href="https://github.com/DIYgod/download-webhook">https://github.com/DIYgod/download-webhook</a> + ifttt + rsshub: <strong>workflow</strong> bilibili coined -&gt; trigger rss feed -&gt; ifttt send webhook request -&gt; frp to <strong>sbc</strong> -&gt; trigger you-get download</li>
+</ul>
+<p>Therefore, SBC will require a large size external hard drive to fulfill its missions.</p>
+<h2 id="Router-1"><a href="#Router-1" class="headerlink" title="Router"></a>Router</h2><p>Router is used to manage all network traffic of devices in local network. For better experience, we should use <strong>opnewrt</strong> based operating system for router. Some global functions can and actually should be installed on router instead of each individual device.</p>
+<ul>
+<li>VPN related:<ul>
+<li>zerotier-one: allow each device in local network to have access to my private zerotier network, very convenient.</li>
+<li>global VPN: run shadowsocks or v2ray on router and setup autoswitch proxy rules. I have setup v2ray transparent proxy on <strong>cc-arch</strong>.</li>
+</ul>
+</li>
+<li>traffic management:<ul>
+<li>QoS: QoS for local devices to avoid poor network quality when downloading something with full speed automatically.</li>
+<li>hardware accelerated NAT: may conflict with QoS.</li>
+</ul>
+</li>
+<li>services: experience improvements<ul>
+<li>local DNS server: maybe install pi-hole on <strong>soft</strong> router is a better choice.</li>
+<li>AdBlocker: should be installed on router to filter Ad urls apart from browser plugins.</li>
+</ul>
+</li>
+</ul>
+<p>I will setup my openwrt router with two vlans, one with function of network switch and wireless ap (5G), another with routing and wireless routing (2.4G). Because I have two wireless cards.</p>
+<h2 id="Summary-of-my-current-setup"><a href="#Summary-of-my-current-setup" class="headerlink" title="Summary of my current setup"></a>Summary of my current setup</h2><p><strong>Running Servers</strong>:</p>
+<ul>
+<li><strong>10.128.4.71</strong>: <strong>raspberry Pi 4</strong> with 20TB disk<ul>
+<li>PT downloader</li>
+<li>Seafile server: 10.128.4.71/seafile using nginx, and accessible through <a href="http://baucdlovechina.katsusama.xyz/seafile/accounts/login/">public url</a>. 10.28.4.71:8000 only for client not for web access</li>
+<li>NFS server</li>
+<li>shadowsocks server: iop-rpi4 for accessing APS papers and ipv6 resources</li>
+<li>shadowsocks client: socks port 1234 use mainly for web browsers</li>
+<li>v2ray transparent proxy server: for all my devices in 2.4G network and provide support for other 10.128.x.x machines. It is used as gateway, domestic DNS request is still through <strong>pi-hole</strong> (10.128.4.104). Other request will be handled by 8.8.8.8 via vps’s proxy. By disabling the <strong>destoverride</strong> for tls, now the iOS notification and mtproxy are working within the tproxy environment. </li>
+<li>telegram MTProxy server (JSMTProxy, C version not working on aarch64)+frp client, use <strong>tproxy</strong> to connect to telegram servers, much stable than hosting MTProxy on VPS directly (still not stable with frp, useful when having access to 10.128.4.71)</li>
+<li>cockpit</li>
+<li>frp client connected to gysun’s vps for socks5 port forwarding</li>
+<li>2021.05.11: media center setup, jellyfin + transmission-remote + nfs (relative high connection speed)</li>
+<li>2021.05.11: zerotier for iop networks</li>
+<li>2021.05.27: rsshub docker + frp port 1200</li>
+<li>2021.05.27: jd-scripts docker</li>
+</ul>
+</li>
+<li><strong>10.128.4.104</strong>: <strong>rock64 sbc</strong><ul>
+<li>pi-hole: local DNS server for all my devices</li>
+<li>rsshub (docker): my rsshub to fetch rss feed</li>
+<li>zerotier client: necessary, because my vps must contact with it (172.26.0.10) to fetch and send rss feed via RSS telegram bot</li>
+<li>zerotier client 2: for Zhe Li’s network, access 10.128.4.71 for VPN</li>
+<li><strong>zerotier gateway</strong>: route to 10.128.4.x and 10.105.17.x machines in IOP network</li>
+<li>cockpit</li>
+<li>jellyfin: media center, now do not transcode (encode), use local player to decode (local jellyfin clients have no <strong>hevc</strong> deconding capability, even software deconding. Now safari clients can use its own hevc decoder to play the h265 videos). frp to <strong>vps</strong>. However, pi-hole is using 80 so that I cannot use nginx to reverse proxy for jellyfin as secondary page and then use frp to give it a domain. Just use port 8096 on <strong>vps</strong> domain. </li>
+<li>frp client port forwarding to my vps for rsshub, webhook downloader and jellyfin </li>
+<li>jd-scripts: for JD, need server chan for notification</li>
+<li>2021.05.11: zerotier just my private network <strong>172.26.0.x</strong>, not for iop anymore</li>
+<li>2021.05.11: jellyfin only for bilibili coined videos. Other multimedia resources are at <strong>rpi4</strong> </li>
+<li>2021.05.11: v2ray + shadowsocks client of my vps</li>
+</ul>
+</li>
+<li><strong>45.76.167.79</strong>: <strong>vps</strong><ul>
+<li>shadowsocks server</li>
+<li>v2ray server with tls support</li>
+<li>telegram MTProxy server (not working actually because of port being blocked). Now working with TLS support</li>
+<li>zerotier client:<ul>
+<li>necessary, need to contact with <strong>rock64 sbc</strong> to fetch rss feed from rsshub</li>
+<li>necessary, need to contact with <strong>rpi4</strong> to proxy for seafile, now use <a href="http://baucdlovechina.katsusama.xyz/seafile/accounts/login">http://baucdlovechina.katsusama.xyz/seafile/accounts/login</a> as its public domain</li>
+</ul>
+</li>
+<li>frp server:<ul>
+<li> mainly connect with <strong>rpi4</strong>‘s client for telegram MTProxy server + tproxy</li>
+<li> rsshub server and webhook downloader on <strong>sbc</strong></li>
+<li> jellyfin server on <strong>sbc</strong></li>
+<li> webhook downloader on <strong>sbc</strong></li>
+</ul>
+</li>
+<li>telegram Bots:<ul>
+<li>WeChat bot</li>
+<li>RSS bot: now using flowerss_bot</li>
+</ul>
+</li>
+<li>nginx reversed proxy<ul>
+<li>my wordpress blog as root</li>
+<li>T03 Seafile server on <strong>rpi4</strong>, need zerotier-one</li>
+<li>T03 Seafile webDAV support, need zerotier-one. webDAV is used to sync my <strong>Joplin</strong> notebooks</li>
+<li>frps dashboard on <strong>vps</strong> , need frp: <strong>not working</strong>, seems it is a dynamic site, don’t know how to properly proxy it.</li>
+<li>rsshub server on <strong>sbc</strong>, need frp</li>
+<li>webhook downloader on <strong>sbc</strong>, need frp</li>
+<li>cockpit webpage interface, monitoring the status of <strong>sbc + rpi4 + ccarch + vps</strong></li>
+</ul>
+</li>
+<li>cockpit: use nginx to reverse proxy the web dashboard. On Arch Linux machines, one has to<ul>
+<li>install cockpit, use <code>systemctl start cockpit.service</code> to start the cockpit. use <code>systemctl enable --now cockpit.socket</code> for auto-start.</li>
+<li>install cockpit-pcp, use <code>systemctl start pmcd.service</code> plus (sometimes needed) <code>systemctl start pmlogger.service</code> to start the graphics stats.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cloud platforms:<ul>
+<li>github: genshin check in helper</li>
+<li>heroku: telegram image collector, need <strong>mega</strong> and <strong>google firebase</strong> support</li>
+</ul>
+</li>
+</ul>
+<p><strong>Running Clients</strong>:</p>
+<p><strong>10.128.4.105</strong>: <strong>Newifi Pandorabox</strong></p>
+<ul>
+<li>AP mode: wired and 5G wlan work in AP mode to give my device 10.128.x.x ip</li>
+<li>AC mode: 2.4G wlan work in routing mode for my mobile devices such as phone, iPhone, iPad and watch</li>
+<li>zerotier client: necessary, make my 2.4G wlan network (mobile devices) have access to 172.26.0.x devices (actually all 10.128 and 10.105 machines because of zerotier gateway on 172.26.0.10 sbc machine)</li>
+<li>2.4G network uses <strong>tproxy</strong> machine as gateway such that my mobile devices all have access to blocked websites</li>
+</ul>
+<p><strong>Backup Servers</strong>:</p>
+<ul>
+<li><strong>10.128.4.107</strong>: <strong>cc-arch</strong><ul>
+<li>serve as backup of my v2ray tproxy</li>
+<li>my pbs job management system</li>
+<li>Don’t Starve Together Dedicated Server</li>
+<li>cockpit</li>
+</ul>
+</li>
+<li><strong>10.128.4.42</strong>: <strong>gitserver</strong><ul>
+<li>mainly serve as backup for <strong>rpi4</strong>‘s duties</li>
+</ul>
+</li>
+</ul>
+<h2 id="Some-Notes"><a href="#Some-Notes" class="headerlink" title="Some Notes"></a>Some Notes</h2><p>2021.10.11: After reboot, I need to ssh to rpi4 to start</p>
+<ul>
+<li>jellyfin service</li>
+<li>frp</li>
+<li>gosh, for the 8080 port</li>
+<li>tsm-daemon</li>
+<li>docker-&gt;rsshub</li>
+</ul>
+<h1 id="Android-Phone-Customization"><a href="#Android-Phone-Customization" class="headerlink" title="Android Phone Customization"></a>Android Phone Customization</h1><p>I use phone for what? The following</p>
+<ul>
+<li>Basic communications: answer phone call and receive text messages (mainly verification code)</li>
+<li>Taking pictures and videos, scan QR code</li>
+<li>Gaming: Honkai3rd and Genshin impact</li>
+<li>Social Networking and Instant Messenging: WeChat, Bilibili, Douban, Zhihu and Stackexchange etc</li>
+<li>Finance Apps: many bank apps including Alipay, JD and WeChat</li>
+<li>Other apps</li>
+</ul>
+<p>The most important apps on phone are</p>
+<ul>
+<li>Telegram: I use telegram to collect all of my messages even including the WeChat messages. And luckily I can use mtproxy+faketls to connect to telegram server without the help of shadowsocks or v2ray client app.</li>
+<li>Browser: <strong>kiwi</strong> browser + switchyomega with frp, I can access my proxy server hosted inside iop office. I can access Google search without the need o f shadowsocks or v2ray client app.  As for other app that need proxy, I can use shadowsocks or v2ray client app.</li>
+</ul>
+<h2 id="Ads-Block"><a href="#Ads-Block" class="headerlink" title="Ads Block"></a>Ads Block</h2><p><strong>light start</strong> will help me skip the opening ads of most apps automatically. It is a necessity for me now.</p>
+<h2 id="Information-Forwarding"><a href="#Information-Forwarding" class="headerlink" title="Information Forwarding"></a>Information Forwarding</h2><p>Use <strong>IFTTT</strong> to forward missed phone calls and SMS to telegram <strong>IFTTT</strong> bot. So that basically all of the my information will be collected and manged by telegram.</p>
+<h2 id="Across-the-GFW"><a href="#Across-the-GFW" class="headerlink" title="Across the GFW"></a>Across the GFW</h2><p>Use <strong>shadowsocks</strong> plus <strong>GFW list</strong> to connect to Google etc and bypass the domestic sites. And <strong>IFTTT</strong> will need <strong>shadowsocks</strong> to work normally. In conclusion, <strong>shadowsocks</strong> and <strong>IFTTT</strong> have to run all the time in the background as well as the <strong>light start</strong>.</p>
+<h1 id="iPad-Pro-Customization"><a href="#iPad-Pro-Customization" class="headerlink" title="iPad Pro Customization"></a>iPad Pro Customization</h1><p>iPad Pro for two requirements</p>
+<ul>
+<li><strong>GoodNotes5</strong>: pdf reading and annotations with Apple Pencial</li>
+<li><strong>GoodNotes5</strong>: handwritten notes</li>
+<li>Social Networking: bilibili, zhihu and douban etc. With <strong>Bigger</strong> screen than phone</li>
+<li>Shopping apps: <strong>Bigger</strong> screens</li>
+<li>Gaming experience should be better, but I don’t play those casual games on iPad. I choose Steam, miHoYo and Windows.</li>
+</ul>
+<h1 id="Windows-PC-Customization"><a href="#Windows-PC-Customization" class="headerlink" title="Windows PC Customization"></a>Windows PC Customization</h1><p>The sole purpose of having a Windows PC is for gaming. So I need nothing not related to gaming. However, the following necessities should be installed</p>
+<ul>
+<li>Chrome, browser</li>
+<li>telegram client</li>
+<li>miHoYo n0va desktop, wallpaper</li>
+</ul>
+<p>As for the gaming platforms, I have selected the following ones</p>
+<ul>
+<li>Steam: most of my games are in Steam</li>
+<li>Ubisoft: some games collected when they are free (3A)</li>
+<li>miHoYo: Honkai 3rd (include mumu emulator) and Genshin Impact</li>
+</ul>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
