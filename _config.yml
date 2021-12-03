@@ -108,3 +108,17 @@ deploy:
       url: https://github.com/baucd/baucd.github.io.git
       branch: master
       token: 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
+
+# search
+search:
+path: search.xml
+field: post
+format: html
+limit: 10000
+
+# excerpt
+excerpt:
+  depth: 5
+  excerpt_excludes: []
+  more_excludes: []
+  hideWholePostExcerpts: true
