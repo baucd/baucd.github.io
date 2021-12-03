@@ -107,14 +107,15 @@ deploy:
     github:
       url: https://github.com/baucd/baucd.github.io.git
       branch: master
-      token: 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
+      token: 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
+      user: baucd
 
 # search
-search:
-path: search.xml
-field: post
-format: html
-limit: 10000
+#search:
+#path: search.xml
+#field: post
+#format: html
+#limit: 10000
 
 # excerpt
 excerpt:
