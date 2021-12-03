@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>cc first post</title>
+    <url>/2021/12/03/cc-first-post/</url>
+    <content><![CDATA[<h1 id="GDB-Usage"><a href="#GDB-Usage" class="headerlink" title="GDB Usage"></a>GDB Usage</h1><h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>Use <strong>info breakpoints</strong> to view all breakpoints. There are various way to setup breakpoints</p>
+<ul>
+<li>using line number, <strong>b 9</strong></li>
+<li>using function name, <strong>b func</strong></li>
+<li>set the breakpoints if some conditions are satisfied. <strong>break test.c:23 if b==0</strong>, and use <strong>condition</strong> to set the variables</li>
+<li>set the breakpoints according to some custom rules. <strong>rbreak</strong></li>
+<li>temporary breakpoints. <strong>tbreak</strong></li>
+<li>ignore breakpoints for sometimes. <strong>ignore 1 30</strong>, ignore breakpoint 1 for 30 times.</li>
+<li><strong>disable</strong>, <strong>enable</strong>, <strong>clear</strong>, <strong>delete</strong> breakpoints.</li>
+</ul>
+<h2 id="Watch-Variables"><a href="#Watch-Variables" class="headerlink" title="Watch Variables"></a>Watch Variables</h2><p>After we setup breakpoints and run the program, we need to watch the values of variables to locate the bugs and debug. When we reach certain breakpoints, we can check the variables as follows</p>
+<ul>
+<li><strong>print</strong>: print ordinary variables such as scalars, arrays or strings. We can also print out variables that belong to certain functions or source code files via <strong>p ‘testGdb.h’::a</strong></li>
+<li>for pointer, <strong>p d</strong> will output the address only, *<em>p <em>d</em></em> will give us the value. However, for array, it will output the first element only, please use *<em>p <em>d@n</em></em> to print out <strong>n</strong> elements.</li>
+<li><strong>display</strong>: print out certain variables everytime breakpoint is encountered. </li>
+<li><strong>info display</strong>: show variables that are be marked with <strong>display</strong>. </li>
+</ul>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+</search>
