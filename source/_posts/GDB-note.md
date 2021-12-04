@@ -1,7 +1,7 @@
 ---
-title: cc first post
+title: GDB note
 date: 2021-12-03 15:37:39
-tags: test
+tags: linux
 categories: coding
 ---
 
