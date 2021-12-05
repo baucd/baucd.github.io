@@ -2,7 +2,7 @@
 title: devices customizations
 date: 2021-12-03 16:13:09
 tags: 
- - Linux
+ - linux
  - macos
 categories: coding
 ---
