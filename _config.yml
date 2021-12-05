@@ -107,7 +107,7 @@ deploy:
     github:
       url: https://github.com/baucd/baucd.github.io.git
       branch: master
-      token: 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
+      token: $GITHUB_TOKEN
       user: baucd
 
 # search
